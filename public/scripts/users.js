@@ -21,10 +21,6 @@
             function successfulResponse(res) {
                 let results = res.data;
                 vm.userData = results;
-
-                let userId = _.invertBy(vm.userData, function(item) {
-                    return item.id;
-                });
             }
 
             function errorResponse() {
@@ -57,7 +53,7 @@
                 }
                 vm.photos = [...vm.photos, ...photos];
             });
-        }
+        };
 
         vm.getAlbums = (id) =>{
             vm.photos = null;
@@ -86,14 +82,14 @@
                 console.log('Albums API Call Error');
             }
 
-        }
+        };
 
         vm.displayPhotoAlbum = (id) => {
             vm.photo = null;
             vm.showLoadMore = true;
             vm.album = vm.albums.find(album => album.id === id);
             vm.photos = vm.album.photos;
-        }
+        };
 
         vm.getPhoto = (id) => {
             vm.photo = vm.photos.find(photo => photo.id === id)
