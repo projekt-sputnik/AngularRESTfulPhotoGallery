@@ -1,0 +1,7 @@
+ul {  list-style: none;  }
+li > span {  font-weight: bold; cursor: pointer; font-size: 16px; margin-bottom: 5px;  }
+.albums { cursor: pointer; display: inline-block; width: 300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.imageWrapper { text-align: center; }
+.imageWrapper img { margin: 0 auto; }
+.photos { cursor: pointer; padding: 4px; display: inline-block; }
+.loadImages { cursor: pointer; text-align: center; }

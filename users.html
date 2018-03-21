@@ -1,0 +1,35 @@
+<div class="wrapper" ng-init="users.getUsers()">
+    <h2>Users</h2>
+    <h>Click a user name to reveal photo galleries</h>
+    <ul>
+        <li class="users" ng-repeat="user in users.userData">
+            <span ng-click="users.getAlbums(user.id)">{{ user.name }}</span>
+        </li>
+    </ul>
+    <div ng-show="users.user">
+        <h2>{{users.user.name}}'s Albums</h2>
+        <div class="albums" ng-repeat="album in users.albums">
+            <div class="imageWrapper" ng-click="users.displayPhotoAlbum(album.id)">
+                <img ng-src="{{album.thumbnail}}" />
+                <p>{{ album.title }}</p>
+            </div>
+        </div>
+        <div ng-show="users.photos">
+            <h2><i>{{users.album.title}}</i> Picture Album</h2>
+            <div class="photos" ng-repeat="photo in users.photos">
+                <div ng-click="users.getPhoto(photo.id)"><img ng-src="{{photo.thumbnailUrl}}" /></div>
+            </div>
+            <div class="loadImages" ng-show="users.showLoadMore"><h3 ng-click="users.loadMorePhotos(users.album.id)"><i>load more photos</i></h3></div>
+            <div class="photo">
+                <div ng-click="users.getPhoto(photo.id)">
+                    <div ng-show="users.photo">
+                        <h2 ng-show="users.photo.title">Picture: <i>{{users.photo.title}}</i></h2>
+                        <div>
+                            <img ng-src="{{users.photo.url}}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
